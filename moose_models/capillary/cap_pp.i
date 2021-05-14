@@ -127,7 +127,7 @@
   [./grad_stress_r]
     type = StressDivergenceRZTensors
     temperature = temp
-    thermal_eigenstrain_name = thermal_contribution
+    eigenstrain_names = thermal_contribution
     variable = disp_r
     use_displaced_mesh = false
     component = 0
@@ -293,33 +293,6 @@
     fp = co2
     phase = 1
   [../]
-  [./dens_all]
-    type = PorousFlowJoiner
-    at_nodes = true
-    include_old = true
-    material_property = PorousFlow_fluid_phase_density_nodal
-  [../]
-  [./dens_all_at_quadpoints]
-    type = PorousFlowJoiner
-    material_property = PorousFlow_fluid_phase_density_qp
-    at_nodes = false
-  [../]
-  [./visc_all]
-    type = PorousFlowJoiner
-    at_nodes = true
-    material_property = PorousFlow_viscosity_nodal
-  [../]
-  [./energy_all]
-    type = PorousFlowJoiner
-    include_old = true
-    at_nodes = true
-    material_property = PorousFlow_fluid_phase_internal_energy_nodal
-  [../]
-  [./enthalpy_all]
-    type = PorousFlowJoiner
-    at_nodes = true
-    material_property = PorousFlow_fluid_phase_enthalpy_nodal
-  [../]
   [./porosity_reservoir]
     type = PorousFlowPorosityConst
     porosity = 0.2
@@ -345,11 +318,6 @@
     sum_s_res = 0.405
     nw_phase = true
     lambda = 2
-  [../]
-  [./relperm_all]
-    type = PorousFlowJoiner
-    at_nodes = true
-    material_property = PorousFlow_relative_permeability_nodal
   [../]
   [./thermal_conductivity_reservoir]
     type = PorousFlowThermalConductivityIdeal
@@ -426,7 +394,7 @@
     flux_function = 'min(t/100.0,1)*(-2.294001475)' # 5.0E5 T/year = 15.855 kg/s, over area of 2Pi*0.1*11
   [../]
   [./cold_co2]
-    type = PresetBC
+    type = DirichletBC
     boundary = left
     variable = temp
     value = 294
@@ -440,7 +408,7 @@
     use_displaced_mesh = false
   [../]
   [./fixed_outer_r]
-    type = PresetBC
+    type = DirichletBC
     variable = disp_r
     value = 0
     boundary = right
@@ -507,7 +475,7 @@
 [Outputs]
   print_linear_residuals = false
   sync_times = '3600 86400 2.592E6 1.5768E8'
-  print_perf_log = true
+  perf_graph = true
   [./exodus]
     type = Exodus
   [../]

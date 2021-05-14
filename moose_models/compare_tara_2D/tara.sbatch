@@ -11,10 +11,10 @@
 
 source ~/.profile
 
-export CSIRO_DIR=/projects/moose/projects_wil04q/csiro
-export SIMULATE_DIR=/home/wil04q/anlec/compare_tara_2D_rerun_radio
+export CSIRO_DIR=/datasets/work/en-cmrp/work/apps/projects/projects_wil04q/moose/modules/porous_flow
+export SIMULATE_DIR=/datasets/work/en-cmrp/work/apps/projects/projects_wil04q/tara_cf_moose_models/moose_models/compare_tara_2D
 
 ulimit -s 102400
 
 cd $SIMULATE_DIR
-mpirun -n 20 ${CSIRO_DIR}/csiro-opt -i tara.i > ${SIMULATE_DIR}/tara.log 2>&1
+mpirun -n 20 ${CSIRO_DIR}/porous_flow-opt -i tara.i > ${SIMULATE_DIR}/tara.log 2>&1

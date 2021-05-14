@@ -11,8 +11,8 @@
 
 source ~/.profile
 
-export CSIRO_DIR=/projects/cmrp/projects_wil04q/moose/modules/porous_flow
-export SIMULATE_DIR=/home/wil04q/cemvmc_home/papers/tara_cf/moose_models/radial_thermal
+export CSIRO_DIR=/datasets/work/en-cmrp/work/apps/projects/projects_wil04q/moose/modules/porous_flow
+export SIMULATE_DIR=/datasets/work/en-cmrp/work/apps/projects/projects_wil04q/tara_cf_moose_models/moose_models/radial_thermal
 
 ulimit -s 102400
 
