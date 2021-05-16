@@ -159,7 +159,7 @@
   [./grad_stress_r]
     type = StressDivergenceRZTensors
     temperature = temp
-    thermal_eigenstrain_name = thermal_contribution
+    eigenstrain_names = thermal_contribution
     variable = disp_r
     use_displaced_mesh = false
     component = 0
@@ -410,7 +410,7 @@
     flux_function = 'min(t/100.0,1)*(-2.294001475)' # 5.0E5 T/year = 15.855 kg/s, over area of 2Pi*0.1*11
   [../]
   [./cold_co2]
-    type = PresetBC
+    type = DirichletBC
     boundary = injection_area
     variable = temp
     value = 294
@@ -424,7 +424,7 @@
     use_displaced_mesh = false
   [../]
   [./fixed_outer_r]
-    type = PresetBC
+    type = DirichletBC
     variable = disp_r
     value = 0
     boundary = right
@@ -493,6 +493,7 @@
   perf_graph = true
   [./exodus]
     type = Exodus
+    interval = 100
   [../]
   [./csv]
     type = CSV
