@@ -24,5 +24,10 @@ Executable Timestamp:    Mon May 17 08:05:13 2021
 
 Download, install and usage instructions for MOOSE may be found at https://mooseframework.inl.gov/ .   The "benchmark" MOOSE model that is guaranteed to run with the latest version of MOOSE may be found at https://mooseframework.inl.gov/modules/porous_flow/thm_example.html (this model does not contain any of the extensions described in the Green et al. paper).
 
+Finally, note two things:
+
+- You will probably receive slightly different results from your own install of MOOSE compared with those in this repository.  This is probably due to you having a slightly different PETSc configuration than was used here.  The differences won't result in any noticable changes in the plots.
+- Before running the python scripts to generate plots based on your results, you will probably have to modify those python scripts to ensure the correct CSV files are used, and the correct columns in those CSV files are plotted.
+
 
 
